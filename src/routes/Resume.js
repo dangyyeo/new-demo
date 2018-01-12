@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Button } from 'antd';
-// import styles from './App.less';
+// import styles from './Resume.less';
 
-function App() {
+function Resume() {
     return (
         <Button type="primary" icon="search">Hello</Button>
     );
 }
 
-App.propTypes = {
+Resume.propTypes = {
 };
 
-export default connect()(App);
+export default connect()(Resume);
