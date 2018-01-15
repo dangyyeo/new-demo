@@ -1,13 +1,15 @@
 const Mock = require('mockjs');
 
-let arr = ['phone', 'email', 'wechat', 'github'];
+let arr = ['phone', 'mail', 'wechat', 'github'];
+let icons = ['phone', 'mail', 'wechat', 'github'];
 const resume = Mock.mock({
     content: '@csentence()',
     name: '@cname',
     job: '@cword(5, 8)',
-    'contact|4': [{
-        type: '@word(5, 8)',
+    'contacts|4': [{
+        'type|+1': icons,
         icon: Mock.Random.image('50*50', Mock.mock('@color'), '#FFF', 'png', 'A'),
+        'isurl|+1': [true, false],
         'url|1': [
             '@url()', '@email', /^(13[0-9]|15[0|1|3|6|7|8|9]|18[8|9])-\d{4}-\d{4}$/,
         ],
