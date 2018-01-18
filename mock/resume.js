@@ -1,7 +1,7 @@
 const Mock = require('mockjs');
 
 let arr = ['phone', 'mail', 'wechat', 'github'];
-let icons = ['phone', 'mail', 'wechat', 'github'];
+const icons = ['phone', 'mail', 'wechat', 'github'];
 const resume = Mock.mock({
     content: '@csentence()',
     name: '@cname',
@@ -11,31 +11,42 @@ const resume = Mock.mock({
         icon: Mock.Random.image('50*50', Mock.mock('@color'), '#FFF', 'png', 'A'),
         'isurl|+1': [true, false],
         'url|1': [
-            '@url()', '@email', /^(13[0-9]|15[0|1|3|6|7|8|9]|18[8|9])-\d{4}-\d{4}$/,
+            '@url()', '@email', /^(13[0-9]|15[0136789]|18[89])-\d{4}-\d{4}$/,
         ],
         'urlText|1': [
-            '@url()', '@email', /^(13[0-9]|15[0|1|3|6|7|8|9]|18[8|9])-\d{4}-\d{4}$/,
+            '@url()', '@email', /^(13[0-9]|15[0136789]|18[89])-\d{4}-\d{4}$/,
         ],
     }],
-    'education|2-3': [{
-        type: '@cword(2, 3)',
-        name: '@ctitle(5)',
-        major: '@ctitle(5,8)',
-        start: '@date("yyyy-MM")',
-        end: '@date("yyyy-MM")',
-    }],
-    'experiences|3-5': [{
-        icon: Mock.Random.image('50*50', Mock.mock('@color'), '#FFF', 'png', '@pick(["A", "E", "I", "O", "U"])'),
-        company: '@ctitle(5)',
-        start: '@date("yyyy-MM")',
-        end: '@date("yyyy-MM")',
-        'works|2-3': [{
-            name: '@cword(3, 5)',
-            'description|2-3': [
-                '@cparagraph(2, 3)',
-            ],
+    educations: {
+        icon: 'home',
+        titleCh: '@cword(3, 5)',
+        titleEn: '@word(5, 8)',
+        'datas|2-3': [{
+            type: '@cword(2, 3)',
+            icon: '',
+            name: '@ctitle(5)',
+            major: '@ctitle(5,8)',
+            start: '@date("yyyy")',
+            end: '@date("yyyy")',
         }],
-    }],
+    },
+    experiences: {
+        icon: 'home',
+        titleCh: '@cword(3, 5)',
+        titleEn: '@word(5, 8)',
+        'datas|3-5': [{
+            icon: Mock.Random.image('50*50', Mock.mock('@color'), '#FFF', 'png', '@pick(["A", "E", "I", "O", "U"])'),
+            company: '@ctitle(5)',
+            start: '@date("yyyy-MM")',
+            end: '@date("yyyy-MM")',
+            'works|2-3': [{
+                name: '@cword(3, 5)',
+                'description|2-3': [
+                    '@cparagraph(2, 3)',
+                ],
+            }],
+        }],
+    },
     skills: [{
         type: '前端',
         'includes|2-3': [{

@@ -4,13 +4,13 @@ import { connect } from 'dva';
 import { Layout } from 'antd';
 import styles from './Resume.less';
 import Info from '../components/Info';
+import Education from '../components/Education';
 
 const { Footer, Content } = Layout;
 
 const Resume = ({ app }) => {
     const { resumes } = app;
-    console.log(resumes);
-    const { contents, name, job, contacts } = resumes;
+    const { contents, name, job, contacts, educations } = resumes;
 
     const infoProps = {
         contents,
@@ -18,15 +18,14 @@ const Resume = ({ app }) => {
         job,
         contacts,
     };
-
     return (
         <div className={styles.normal}>
             <Layout>
                 <Info {...infoProps} />
-                <Content>
-                    b
+                <Content className={styles.content_style}>
+                    <Education {...educations} />
                 </Content>
-                <Footer>
+                <Footer className={styles.center}>
                     Copyright © 2018 Created by Yyeo
                 </Footer>
             </Layout>

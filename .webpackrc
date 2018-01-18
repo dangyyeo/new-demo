@@ -1,6 +1,7 @@
 {
     "theme": {
-        "@primary-color": "#2eb5a4"
+        "@primary-color": "#000000",
+        "@timeline-color": "#000000"
     },
     "proxy": {
         "/api": {
