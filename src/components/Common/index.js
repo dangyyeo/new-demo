@@ -38,15 +38,36 @@ const Common = ({ type, icon, titleCh, titleEn, commonObj: commonobj }) => {
                     </div>
                 </CommonItem>
             ));
+        } else if (_type === 'skill') {
+            return _commonobj.map(obj => (
+                <CommonItem icons={obj.icon} key={obj.tid}>
+                    <div className={styles.exper} >
+                        <span>{obj.type}</span>
+                        <Row className={styles.border}>
+                            {
+                                obj.includes.map(include => (
+                                    <Col span={12} key={include.iid}>
+                                        <div style={{ margin: '10px 10px 0 0' }}>
+                                            <h3>{include.name}</h3>
+                                            <List
+                                                dataSource={include.descriptions}
+                                                renderItem={item => (<List.Item style={{ border: 'none', padding: '2px 0', lineHeight: 1.5 }}><Icon type="disconnect" style={{ padding: '4px 4px 0 0' }} /><span style={{ wordWrap: 'bread-word' }}>{item}</span></List.Item>)}
+                                            />
+                                        </div>
+                                    </Col>
+                                ))
+                            }
+                        </Row>
+                    </div>
+                </CommonItem>
+            ));
         }
     };
     const contentItems = getContent(type, commonobj);
     return (
         <div className={styles.timeline}>
             <div className={styles.timeline_title}>
-                <Button type="primary" shape="circle" size="small">
-                    <Icon type={icon} style={{ fontSize: 20 }} />
-                </Button>
+                <Button type="primary" shape="circle" size="small" icon={icon} />
                 <span>{titleCh}</span>
                 <span>{titleEn}</span>
             </div>

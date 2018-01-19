@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import Icon from './Icon';
-import styles from './WorkItem.less';
+// import styles from './WorkItem.less';
 
 const WorkItem = ({ works }) => {
     const contentworks = works.map(work => (

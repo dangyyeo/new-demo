@@ -50,17 +50,23 @@ const resume = Mock.mock({
             }],
         }],
     },
-    skills: [{
-        'tid|+2': 1,
-        type: '@cword(2, 3)',
-        'includes|2-3': [{
-            'iid|+1': 1,
-            name: '@title(2, 3)',
-            'descriptions|2-5': [
-                '@cparagraph(1, 2)',
-            ],
+    skills: {
+        icon: 'job',
+        titleCh: '@cword(3, 5)',
+        titleEn: '@word(5, 8)',
+        'datas|3-5': [{
+            'tid|+2': 100,
+            icon: 'school',
+            type: '@cword(2, 3)',
+            'includes|2-3': [{
+                'iid|+1': 1,
+                name: '@ctitle(2, 3)',
+                'descriptions|2-5': [
+                    '@cparagraph(1, 2)',
+                ],
+            }],
         }],
-    }],
+    },
 });
 module.exports = {
     'GET /resume': (req, res) => {
