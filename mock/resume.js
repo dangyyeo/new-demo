@@ -18,10 +18,11 @@ const resume = Mock.mock({
         ],
     }],
     educations: {
-        icon: 'home',
+        icon: 'school',
         titleCh: '@cword(3, 5)',
         titleEn: '@word(5, 8)',
         'datas|2-3': [{
+            'did|+1': 1,
             type: '@cword(2, 3)',
             icon: '',
             name: '@ctitle(5)',
@@ -31,45 +32,31 @@ const resume = Mock.mock({
         }],
     },
     experiences: {
-        icon: 'home',
+        icon: 'job',
         titleCh: '@cword(3, 5)',
         titleEn: '@word(5, 8)',
         'datas|3-5': [{
-            icon: Mock.Random.image('50*50', Mock.mock('@color'), '#FFF', 'png', '@pick(["A", "E", "I", "O", "U"])'),
+            'did|+1': 1,
+            icon: 'job',
             company: '@ctitle(5)',
-            start: '@date("yyyy-MM")',
-            end: '@date("yyyy-MM")',
+            start: '@date("yyyy.MM")',
+            end: '@date("yyyy.MM")',
             'works|2-3': [{
+                'wid|+1': 1,
                 name: '@cword(3, 5)',
-                'description|2-3': [
-                    '@cparagraph(2, 3)',
+                'descriptions|2-3': [
+                    '@cparagraph(2, 5)',
                 ],
             }],
         }],
     },
     skills: [{
-        type: '前端',
+        'tid|+2': 1,
+        type: '@cword(2, 3)',
         'includes|2-3': [{
+            'iid|+1': 1,
             name: '@title(2, 3)',
-            'description|2-5': [
-                '@cparagraph(1, 2)',
-            ],
-        }],
-    },
-    {
-        type: '后端',
-        'includes|1-2': [{
-            name: '@title(2, 3)',
-            'description|2-5': [
-                '@cparagraph(1, 2)',
-            ],
-        }],
-    },
-    {
-        type: '其它',
-        'includes|2-3': [{
-            name: '@title(2, 3)',
-            'description|2-5': [
+            'descriptions|2-5': [
                 '@cparagraph(1, 2)',
             ],
         }],

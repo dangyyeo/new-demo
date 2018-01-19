@@ -1,14 +1,13 @@
 import React from 'react';
-// import { Button } from 'antd';
-import Icon from './Icon';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
+// import Icon from './Icon';
 import styles from './ComItem.less';
 
 const CommItem = ({ icons, children }) => {
-    console.log(icons, children);
     return (
-        <div style={{ position: 'relative' }}>
-            <Icon icons={icons} />
+        <div className={styles.position}>
+            {icons ? <Button type="primary" shape="circle" size="small" className={styles.icon} icon={icons} /> : null}
             {children}
         </div>
     );

@@ -1,10 +1,9 @@
 import React from 'react';
-import Common from './Common';
-import PropTypes from 'prop-types';
+import Common from '../Common/index';
 
 const Education = ({ icon, titleCh, titleEn, datas }) => {
-    // console.log(educations);
     const commonProps = {
+        type: 'education',
         icon,
         titleCh,
         titleEn,
@@ -13,10 +12,6 @@ const Education = ({ icon, titleCh, titleEn, datas }) => {
     return (
         <Common {...commonProps} />
     );
-};
-
-Education.propTypes = {
-    // educations: PropTypes.array,
 };
 
 export default Education;

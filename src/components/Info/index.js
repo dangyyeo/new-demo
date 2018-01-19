@@ -1,7 +1,6 @@
 import React from 'react';
 import Item from './Item';
-// import PropTypes from 'prop-types';
-import styles from './Info.less';
+import styles from './index.less';
 
 const Info = ({ name, job, contacts }) => {
     return (

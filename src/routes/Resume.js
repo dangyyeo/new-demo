@@ -3,14 +3,13 @@ import { connect } from 'dva';
 // import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import styles from './Resume.less';
-import Info from '../components/Info';
-import Education from '../components/Education';
+import { Info, Education, Experience } from '../components';
 
 const { Footer, Content } = Layout;
 
 const Resume = ({ app }) => {
     const { resumes } = app;
-    const { contents, name, job, contacts, educations } = resumes;
+    const { contents, name, job, contacts, educations, experiences } = resumes;
 
     const infoProps = {
         contents,
@@ -24,6 +23,7 @@ const Resume = ({ app }) => {
                 <Info {...infoProps} />
                 <Content className={styles.content_style}>
                     <Education {...educations} />
+                    <Experience {...experiences} />
                 </Content>
                 <Footer className={styles.center}>
                     Copyright © 2018 Created by Yyeo
